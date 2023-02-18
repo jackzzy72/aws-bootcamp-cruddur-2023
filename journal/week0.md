@@ -8,10 +8,12 @@ Done through Gitpod
 
 ### Create a Budget
 Created throught Console and CLI
-
+[screenshot](assets/budget.png)
 
 ### Create a Billing Alarm
 Create through console and CLI
+[screenshot](assets/BillingAlarm.png)
+
 
 ### Logical Architeture Design
 
