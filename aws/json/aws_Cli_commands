@@ -6,3 +6,14 @@ aws budgets create-budget \
 
 env | grep  AWS -- show variable start with AWS
 gp env  variable -- store variable
+
+aws sns create-topic --name billing-alarm
+
+
+aws sns subscribe \
+    --topic-arn="arn:aws:sns:ca-central-1:342392484058:billing-alarm" \
+    --protocol email \
+    --notification-endpoint=pcs_jack@outlook.com
+
+
+    aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm-config.json
