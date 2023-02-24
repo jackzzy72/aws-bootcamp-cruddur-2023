@@ -25,3 +25,8 @@ vscode:
     - 42Crunch.vscode-openapi
     - cweijan.vscode-postgresql-client2
     - ms-python.python
+    - ms-python.isort
+    - ms-toolsai.jupyter
+    - ms-toolsai.jupyter-keymap
+    - ms-toolsai.vscode-jupyter-cell-tags
+    - ms-toolsai.vscode-jupyter-slideshow
