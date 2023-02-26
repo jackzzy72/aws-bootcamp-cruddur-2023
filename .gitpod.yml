@@ -30,3 +30,15 @@ vscode:
     - ms-toolsai.jupyter-keymap
     - ms-toolsai.vscode-jupyter-cell-tags
     - ms-toolsai.vscode-jupyter-slideshow
+
+ports:
+  - name: frontend
+    port: 3000
+    onOpen: open-browser
+    visibility: public
+  - name: backend
+    port: 4567
+    visibility: public
+  - name: xray-daemon
+    port: 2000
+    visibility: public
