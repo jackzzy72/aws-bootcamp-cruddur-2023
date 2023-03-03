@@ -30,6 +30,7 @@ vscode:
     - ms-toolsai.jupyter-keymap
     - ms-toolsai.vscode-jupyter-cell-tags
     - ms-toolsai.vscode-jupyter-slideshow
+    - ms-toolsai.jupyter-renderers
 
 ports:
   - name: frontend
