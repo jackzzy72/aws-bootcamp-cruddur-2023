@@ -6,7 +6,7 @@
 
 
 ## AWS X-Ray
-- Subsegment is not working properly.
+-Setup X-ray but Subsegment is not working properly.
 ![screenshot](Assets/Xray.png)
 
 
