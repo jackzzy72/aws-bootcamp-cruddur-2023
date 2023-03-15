@@ -8,3 +8,13 @@ export PROD_CONNECTION_URL="postgresql://root:Siemens01rds@cruddur-db-instance.c
 gp env PROD_CONNECTION_URL="postgresql://root:Siemens01rds@cruddur-db-instance.cllfnr5logtv.ca-central-1.rds.amazonaws.com:5432/cruddur"
 
 NO_DB_CONNECTION_URL=$(sed ''s//\cruddur//g' <<< "$CONNECTION_URL")
+
+export DB_SG_ID="sg-0cf271fbb82eb823c"
+gp env DB_SG_ID="sg-0cf271fbb82eb823c"
+export DB_SG_RULE_ID="sgr-03e2c7d84b2b6739f"
+gp env DB_SG_RULE_ID="sgr-03e2c7d84b2b6739f"
+
+
+aws ec2 modify-security-group-rules \
+    --group-id $DB_SG_ID \
+    --security-group-rules "SecurityGroupRuleId=$DB_SG_RULE_ID,SecurityGroupRule={IpProtocol=tcp,FromPort=5432,ToPort=5432,CidrIpv4=$GITPOD_IP/32}"
