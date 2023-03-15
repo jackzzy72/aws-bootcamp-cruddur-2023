@@ -1,19 +1,14 @@
 #! /usr/bin/bash
+-e # stop if it fails at any point
 
 CYAN='\033[1;36m'
 NO_COLOR='\033[0m'
-LABEL="db-schema-load"
+LABEL="db-setup"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
-schema_path=$(realpath .)/db/schema.sql 
-echo $schema_path
+bin_path=$(realpath .)/bin 
 
-if [ "$1" = "prod" ]; then
-    echo "using production"
-    CON_URL=$PROD_CONNECTION_URL
-else
-    echo "using local"
-    CON_URL=$CONNECTION_URL
-fi
-
-psql $CON_URL cruddur < $schema_path
+source "$bin_path/db-drop"
+source "$bin_path/db-create"
+source "$bin_path/db-schema-load"
+source "$bin_path/db-seed"
