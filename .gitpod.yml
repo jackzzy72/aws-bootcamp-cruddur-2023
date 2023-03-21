@@ -18,11 +18,16 @@ tasks:
     command: |
       export GITPOD_IP=$(curl ifconfig.me)
       source  "$THEIA_WORKSPACE_ROOT/backend-flask/bin/rds-update-sg-rule"
-  - name: npm
+  - name: react-js
     init: |
       cd frontend-react-js
       npm i
-      cd ..     
+      cd ..  
+  - name: flask
+    command: |
+      cd backedn-flask
+      pip install -r requiremens.txt
+
 vscode:
   extensions:
     - 42Crunch.vscode-openapi
