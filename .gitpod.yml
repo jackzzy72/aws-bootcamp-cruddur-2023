@@ -26,7 +26,7 @@ tasks:
   - name: flask
     command: |
       cd backend-flask
-      pip install -r requiremens.txt
+      pip install -r requirements.txt
 
 vscode:
   extensions:
