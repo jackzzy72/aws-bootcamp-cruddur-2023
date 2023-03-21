@@ -1,5 +1,5 @@
-
 #!/usr/bin/env python3
+# has to be at the first line
 
 import boto3
 import os
