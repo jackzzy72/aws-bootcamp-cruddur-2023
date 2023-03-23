@@ -25,21 +25,19 @@ class Ddb:
         ':pk': {'S': f"GRP#{my_user_uuid}"}
       }
     }
-    print('query-params')
-    print(query_params)
-    print('client')
-    print(client)
+    print('query-params:',query_params)
 
     # query the table
     response = client.query(**query_params)
     items = response['Items']
     
+    print("items::",items)
     results = []
     for item in items:
       last_sent_at = item['sk']['S']
       results.append({
         'uuid': item['message_group_uuid']['S'],
-        'display_name': item['user_display_name']['S'],
+        'display_name': item['user_display_name']['S'] ,
         'handle': item['user_handle']['S'],
         'message': item['message']['S'],
         'created_at': last_sent_at
