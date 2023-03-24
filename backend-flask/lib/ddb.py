@@ -55,7 +55,7 @@ class Ddb:
       'TableName': table_name,
       'KeyConditionExpression': 'pk = :pk AND begins_with(sk,:year)',
       'ScanIndexForward': False,
-      'Limit': 20,
+      'Limit': 40,
       'ExpressionAttributeValues': {
         ':year': {'S': year },
         ':pk': {'S': f"MSG#{message_group_uuid}"}
@@ -65,7 +65,7 @@ class Ddb:
     response = client.query(**query_params)
     items = response['Items']
     items.reverse()
-    print("items::",items)
+    #print("items::",items)
     results = []
     for item in items:
       created_at = item['sk']['S']
