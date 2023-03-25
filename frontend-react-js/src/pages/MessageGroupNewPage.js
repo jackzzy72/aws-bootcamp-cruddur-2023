@@ -20,6 +20,7 @@ export default function MessageGroupNewPage() {
   const loadUserShortData = async () => {
     try {
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/users/@${params.handle}/short`
+      console.log(backend_url)
       const res = await fetch(backend_url, {
         method: "GET"
       });

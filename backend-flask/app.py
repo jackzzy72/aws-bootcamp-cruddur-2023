@@ -281,7 +281,11 @@ def data_activities_reply(activity_uuid):
 
 @app.route("/api/users/@<string:handle>/short", methods=['GET'])
 def data_users_short(handle):
+  print("DEBUG-----------------")
+  print(handle)
   data = UsersShort.run(handle)
+  print(data)
+  print("DEBUG--------------END")
   return data, 200
 
 if __name__ == "__main__":
