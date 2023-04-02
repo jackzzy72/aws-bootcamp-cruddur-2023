@@ -20,3 +20,13 @@ aws ec2 modify-security-group-rules \
  git tag weekX
   
   git push origin --tags
+
+docker build \
+--build-arg REACT_APP_BACKEND_URL="http://cruddur-alb-263777557.ca-central-1.elb.amazonaws.com:4567" \
+--build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_USER_POOLS_ID="ca-central-1_9bybsRR0y" \
+--build-arg REACT_APP_CLIENT_ID="25k5n7dea5c4ggftb7o762aatq" \
+-t frontend-react-js \
+-f Dockerfile.prod \
+.

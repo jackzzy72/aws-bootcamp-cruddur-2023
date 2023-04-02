@@ -5,9 +5,6 @@
     "networkMode": "awsvpc",
     "cpu": "256",
     "memory": "512",
-    "requiresCompatibilities": [ 
-      "FARGATE" 
-    ],
     "containerDefinitions": [
       {
         "name": "frontend-react-js",
@@ -21,7 +18,6 @@
             "appProtocol": "http"
           }
         ],
-  
         "logConfiguration": {
           "logDriver": "awslogs",
           "options": {
@@ -31,5 +27,8 @@
           }
         }
       }
+    ],
+    "requiresCompatibilities": [ 
+      "FARGATE" 
     ]
   }
