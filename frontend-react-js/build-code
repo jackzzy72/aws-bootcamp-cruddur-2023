@@ -1,0 +1,18 @@
+export ECR_FRONTEND_REACT_URL="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/frontend-react-js"
+echo $ECR_FRONTEND_REACT_URL
+
+
+docker build \
+--build-arg REACT_APP_BACKEND_URL="api.pijinzhanji.net" \
+--build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
+--build-arg REACT_APP_AWS_USER_POOLS_ID="ca-central-1_9bybsRR0y" \
+--build-arg REACT_APP_CLIENT_ID="25k5n7dea5c4ggftb7o762aatq" \
+-t frontend-react-js \
+-f Dockerfile.prod \
+.
+
+docker tag frontend-react-js:latest $ECR_FRONTEND_REACT_URL:latest
+
+
+docker push $ECR_FRONTEND_REACT_URL:latest
