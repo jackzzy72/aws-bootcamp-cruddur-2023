@@ -3,7 +3,7 @@ echo $ECR_FRONTEND_REACT_URL
 
 
 docker build \
---build-arg REACT_APP_BACKEND_URL="api.pijinzhanji.net" \
+--build-arg REACT_APP_BACKEND_URL="https://api.pijinzhanji.net" \
 --build-arg REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
 --build-arg REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
 --build-arg REACT_APP_AWS_USER_POOLS_ID="ca-central-1_9bybsRR0y" \
