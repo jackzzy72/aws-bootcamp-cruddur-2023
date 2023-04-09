@@ -8,6 +8,6 @@ ENVFILE_PATH="$PROJECT_PATH/backend-flask.env"
 
 docker run --rm \
   --env-file $ENVFILE_PATH \
-  --network cruddur-net \
+  --network cruddur \
   --publish 4567:4567 \
   -it backend-flask-prod

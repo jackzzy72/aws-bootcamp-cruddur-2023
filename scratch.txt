@@ -64,6 +64,15 @@ giptpod.yml file re open workspace, "$THEIA_WORKSPACE_ROOT/bin/rds/update-sg-rul
    
 
 when there are two message groups, switch message group does not load all messages. need to go back to message menu.
+docker folder does not ignore in the github.
 
       
 
+Testing in Cloud env.
+0. Test RDS Connection
+1. ./bin/ecr/login
+2. Build
+3. push
+4. register
+5. deploy
+6. stop the service 
