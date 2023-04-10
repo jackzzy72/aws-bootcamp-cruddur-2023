@@ -8,7 +8,7 @@
 
 ### Create ECR - Repsoitory
 
-#### log into ECR - push python 3.10 to ECR repository and change Dockerfile 
+### log into ECR - push python 3.10 to ECR repository and change Dockerfile 
 
 ### load docker contatinner and test health check
 
@@ -16,15 +16,17 @@
 
 ### push backend-flask
 
-#### add enviorment paramenter into SSM
-#### Create 2-seucrity group
-#### Create trust policy and permissiong policy for both secuity group
+### add enviorment paramenter into SSM
+
+### Create 2-seucrity group
+
+### Create trust policy and permissiong policy for both secuity group
 
 ### Create task definition file
 
-#### create service wihout service option through web interface 
-#### not task
-````
+### Use Session Manager to access the container.
+
+```sh
     aws ecs execute-command  \
     --region $AWS_DEFAULT_REGION \
     --cluster cruddur \
@@ -33,8 +35,7 @@
     --command "/bin/bash" \
     --interactive
 ```
-
-````
+```sh
     aws ecs execute-command  \
     --region $AWS_DEFAULT_REGION \
     --cluster cruddur \
@@ -43,3 +44,4 @@
     --command "/bin/bash" \
     --interactive
 ```
+
