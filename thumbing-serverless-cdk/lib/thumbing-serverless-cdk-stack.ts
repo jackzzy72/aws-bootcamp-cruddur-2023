@@ -45,7 +45,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     );
      // create topic and subscription
     const snsTopic = this.createSnsTopic(topicName);
-    //this.createSnsSubscription(snsTopic,webhookUrl);
+    this.createSnsSubscription(snsTopic,webhookUrl);
  
 
     // add our s3 event notifications
