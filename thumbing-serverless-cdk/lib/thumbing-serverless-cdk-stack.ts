@@ -86,7 +86,7 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
       handler: 'index.handler',
       code: lambda.Code.fromAsset(functionPath),
       environment: {
-        DEST_BUCKET_NAME: uploadsBucketName,
+        DEST_BUCKET_NAME: assetsBucketName,
         FOLDER_INPUT: folderInput,
         FOLDER_OUTPUT: folderOutput,
         PROCESS_WIDTH: '512',

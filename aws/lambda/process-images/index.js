@@ -29,6 +29,8 @@ exports.handler = async (event) => {
   console.log('width',width);
   console.log('height',height);
   const processedImage = await processImage(originalImage,width,height);
+  
   console.log('ProcessedImage',processedImage);
-  await uploadProcessedImage(dstBucket,dstKey,processedImage);
+
+  await uploadProcessedImage(client,dstBucket,dstKey,processedImage);
 };
