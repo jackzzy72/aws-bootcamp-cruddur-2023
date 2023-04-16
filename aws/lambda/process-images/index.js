@@ -8,6 +8,7 @@ const folderOutput = process.env.FOLDER_OUTPUT
 const width = parseInt(process.env.PROCESS_WIDTH)
 const height = parseInt(process.env.PROCESS_HEIGHT)
 
+
 client = getClient();
 
 exports.handler = async (event) => {
@@ -18,11 +19,15 @@ exports.handler = async (event) => {
 
   const dstBucket = bucketName;
   filename = path.parse(srcKey).name
+  console.log('filename',filename)
   const dstKey = `${folderOutput}/${filename}.jpg`
   console.log('dstBucket',dstBucket)
   console.log('dstKey',dstKey)
 
   const originalImage = await getOriginalImage(client,srcBucket,srcKey)
+  console.log('width',width)
+  console.log('height',height)
   const processedImage = await processImage(originalImage,width,height)
+  console.log('ProcessedImage',processedImage)
   await uploadProcessedImage(client,dstBucket,dstKey,processedImage)
 };

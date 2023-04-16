@@ -32,7 +32,6 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
     console.log('functionPath:',functionPath)
     
     const uploadsBucket = this.createBucket(uploadsBucketName);
-    //const assetsBucket = this.createBucket(assetsBucketName);
     const assetsBucket = this.importBucket(assetsBucketName);
     
     // create a lambda
@@ -87,11 +86,11 @@ export class ThumbingServerlessCdkStack extends cdk.Stack {
       handler: 'index.handler',
       code: lambda.Code.fromAsset(functionPath),
       environment: {
-        DEST_BUCKET_NAME: assetsBucketName,
+        DEST_BUCKET_NAME: uploadsBucketName,
         FOLDER_INPUT: folderInput,
         FOLDER_OUTPUT: folderOutput,
         PROCESS_WIDTH: '512',
-        POCESS_HEIGHT: '512'
+        PROCESS_HEIGHT: '512'
       }
     });
     return lambdaFunction;

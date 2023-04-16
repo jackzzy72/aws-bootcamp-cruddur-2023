@@ -42,6 +42,7 @@ async function uploadProcessedImage(dstBucket,dstKey,image){
   };
   console.log('params',params)
   const command = new PutObjectCommand(params);
+  console.log('command',command)
   const response = await client.send(command);
   console.log('repsonse',response);
   return response;
