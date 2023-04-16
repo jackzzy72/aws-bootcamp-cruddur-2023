@@ -12,7 +12,7 @@ async function getOriginalImage(client,srcBucket,srcKey){
     Bucket: srcBucket,
     Key: srcKey
   };
-  console.log('params',params)
+  console.log('params',params);
   const command = new GetObjectCommand(params);
   const response = await client.send(command);
 
@@ -40,9 +40,9 @@ async function uploadProcessedImage(dstBucket,dstKey,image){
     Body: image,
     ContentType: 'image/jpeg'
   };
-  console.log('params',params)
+  console.log('params',params);
   const command = new PutObjectCommand(params);
-  console.log('command',command)
+  console.log('command',command);
   const response = await client.send(command);
   console.log('repsonse',response);
   return response;
