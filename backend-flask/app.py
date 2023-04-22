@@ -17,6 +17,7 @@ from services.create_message import *
 from services.show_activity import *
 from services.users_short import *
 from lib.cognito_jwt_token import CognitoJwtToken, extract_access_token , TokenVerifyError
+from services.update_profile import *
 
 #HoneyComb
 from opentelemetry import trace
@@ -231,8 +232,8 @@ def data_notifications():
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
 @xray_recorder.capture('## user activities')
 def data_handle(handle):
-  user_activities = UserActivities(request)
-  model = UserActivities.run(self,handle)
+  # user_activities = UserActivities(request)
+  model = UserActivities.run(handle)
   if model['errors'] is not None:
     return model['errors'], 422
   else:
@@ -251,7 +252,8 @@ def data_search():
 @app.route("/api/activities", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities():
-  user_handle  = 'jackzzy2018'
+  user_handle = request.json["user_handle"]
+  #user_handle  = 'jackzzy2018'
   message = request.json['message']
   ttl = request.json['ttl']
   model = CreateActivity.run(message, user_handle, ttl)
@@ -269,7 +271,8 @@ def data_show_activity(activity_uuid):
 @app.route("/api/activities/<string:activity_uuid>/reply", methods=['POST','OPTIONS'])
 @cross_origin()
 def data_activities_reply(activity_uuid):
-  user_handle  = 'jackzzy2018'
+  user_handle = request.json["user_handle"]
+  #user_handle  = 'jackzzy2018'
   message = request.json['message']
   model = CreateReply.run(message, user_handle, activity_uuid)
   if model['errors'] is not None:
@@ -286,6 +289,30 @@ def data_users_short(handle):
   print(data)
   print("DEBUG--------------END")
   return data, 200
+  
+@app.route("/api/profile/update", methods=['POST', 'OPTIONS'])
+@cross_origin()
+def data_update_profile():
+    bio = request.json.get('bio', None)
+    display_name = request.json.get('display_name', None)
+    access_token = extract_access_token(request.headers)
+    try:
+        claims = cognito_jwt_token.verify(access_token)
+        cognito_user_id = claims['sub']
+        model = UpdateProfile.run(
+            cognito_user_id=cognito_user_id,
+            bio=bio,
+            display_name=display_name
+        )
+        if model['errors'] is not None:
+            return model['errors'], 422
+        else:
+            return model['data'], 200
+    except TokenVerifyError as e:
+        # unauthenticated request
+        app.logger.debug(e)
+        return {}, 401
+
 
 if __name__ == "__main__":
   app.run(debug=True)
