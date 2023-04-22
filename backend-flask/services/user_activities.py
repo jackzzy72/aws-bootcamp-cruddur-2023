@@ -63,4 +63,4 @@ class UserActivities:
             results = db.query_object_json(sql, {'handle': user_handle})
             model['data'] = results
 
-return model
+        return model
