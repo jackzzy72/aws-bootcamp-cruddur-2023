@@ -11,13 +11,17 @@ ABS_PATH=$(readlink -f "$0")
 BIN_PATH=$(dirname $ABS_PATH)
 # set the absolute path to the file
 db_setup_filepath="$BIN_PATH/db/setup"
+db_migrate_filepath="$BIN_PATH/db/migrate"
 ddb_schema_filepath="$BIN_PATH/ddb/schema-load"
 ddb_seed_filepath="$BIN_PATH/ddb/seed"
+
 # get the relative path to the file from the current directory
 db_setup_relative_path=$(realpath --relative-base="$PWD" "$db_setup_filepath")
+db_migrate_relative_path=$(realpath --relative-base="$PWD" "$db_migrate_filepath")
 ddb_schema_relative_path=$(realpath --relative-base="$PWD" "$ddb_schema_filepath")
 ddb_seed_relative_path=$(realpath --relative-base="$PWD" "$ddb_seed_filepath")
 
 "./$db_setup_relative_path"
 "./$ddb_schema_relative_path"
 "./$ddb_seed_relative_path"
+"./$db_migrate_relative_path"

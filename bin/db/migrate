@@ -7,6 +7,11 @@ import re
 import time
 import importlib
 
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="migrating DB"
+print(f"${CYAN}== ${LABEL}${NO_COLOR}\n")
+
 current_path = os.path.dirname(os.path.abspath(__file__))
 parent_path = os.path.abspath(os.path.join(
     current_path, '..', '..', 'backend-flask'))
