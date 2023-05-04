@@ -1,7 +1,7 @@
 import './ProfileAvatar.css';
 
 export default function ProfileAvatar(props) {
-  const backgroundImage = `url("https://assets.pijinzhanji.net/avatars/porcessed/${props.id}.jpg")`;
+  const backgroundImage = `url("https://assets.pijinzhanji.net/avatars/processed/${props.id}.jpg")`;
   const styles = {
     backgroundImage: backgroundImage,
     backgroundSize: 'cover',

@@ -22,6 +22,7 @@ export default function ActivityForm(props) {
       const res = await fetch(backend_url, {
         method: "POST",
         headers: {
+          'Origin': process.env.REACT_APP_FRONTEND_URL,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         },
