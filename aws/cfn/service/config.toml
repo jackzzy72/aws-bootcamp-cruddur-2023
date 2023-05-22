@@ -1,0 +1,4 @@
+[deploy]
+bucket = 'cfn-artifacts-pijinzhanji'
+region = 'ca-central-1'
+stack_name = 'CrdSrvBackendFlask'
