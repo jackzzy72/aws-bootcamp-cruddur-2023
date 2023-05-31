@@ -2,3 +2,8 @@
 bucket = 'cfn-artifacts-pijinzhanji'
 region = 'ca-central-1'
 stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://pijinzhanji.net'
+EnvBackendUrl = 'https://api.pijinzhanji.net'
+DDBMessageTable = 'CrdDdb-DynamoDBTable-18NR1ED8FBAM2'
