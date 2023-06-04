@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-pijinzhanji'
+region = 'ca-central-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:342392484058:certificate/23284dd4-97f8-451d-8b12-661362ea50cd' 
+WwwBucketName = 'www.pijinzhanji.net'
+RootBucketName = 'pijinzhanji.net'
