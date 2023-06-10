@@ -10,7 +10,7 @@
 
 ### - DynamoDB using SAM
 
-### - CI/CD
+### - CFN CI/CD
 
 ### - CFN Static Website Hosting for Frontend
 
