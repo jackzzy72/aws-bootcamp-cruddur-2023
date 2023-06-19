@@ -14,4 +14,6 @@
 
 ### - CFN Static Website Hosting for Frontend
 
+### - CNF Sync Role
+
 ![screenshot](Assets/cfn.png)
