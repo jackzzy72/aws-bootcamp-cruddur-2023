@@ -1,9 +1,3 @@
-import os
-from datetime import datetime, timedelta, timezone
-# import XRay SDK libraries
-from aws_xray_sdk.core import xray_recorder
-from aws_xray_sdk.core import patch_all
-from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
 from lib.db import db
 
 class UserActivities:
