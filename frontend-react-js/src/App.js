@@ -11,9 +11,8 @@ import MessageGroupsPage from './pages/MessageGroupsPage';
 import MessageGroupPage from './pages/MessageGroupPage';
 import MessageGroupNewPage from './pages/MessageGroupNewPage';
 import ConfirmationPage from './pages/ConfirmationPage';
-
+import ActivityShowPage from './pages/ActivityShowPage';
 import React from 'react';
-//import process from 'process';
 import {
   createBrowserRouter,
   RouterProvider
@@ -35,6 +34,7 @@ Amplify.configure({
     userPoolWebClientId: process.env.REACT_APP_CLIENT_ID,   // OPTIONAL - Amazon Cognito Web Client ID (26-char alphanumeric string)
   }
 });
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -47,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/@:handle",
     element: <UserFeedPage />
+  },
+  {
+    path: "/@:handle/status/:activity_uuid",
+    element: <ActivityShowPage />
   },
   {
     path: "/messages",

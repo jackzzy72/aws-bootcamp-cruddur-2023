@@ -1,1 +1,5 @@
-# Week 11 — CloudFormation Part 2
+# Week X
+
+install gem install aws_s3_website_sync
+
+gem install dotenv
